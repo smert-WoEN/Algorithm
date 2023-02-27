@@ -13,23 +13,23 @@ void generate_plot(int n, int x, int y, int hx, int hy)
     {
         for(int i = 0; i < 2; i++)
             for(int j = 0; j < 2; j++)
-                if(x+i != hx || y+j != hy)
-                    A[x+i][y+j] = m++/3;
+                if(x + i != hx || y + j != hy)
+                    A[x + i][y + j] = m++ / 3;
         return;
     }
     for(int i = 0; i < 2; i++)
         for(int j = 0; j < 2; j++)
-            if(x + i*n/2 > hx || hx >= x + i*n/2+n/2 || y + j*n/2 > hy || hy >= y + j*n/2+n/2)
-                A[x+n/2-1+i][y+n/2-1+j] = m++/3; // Middle triangle
+            if(x + i * n / 2 > hx || hx >= x + i * n / 2 + n / 2 || y + j * n / 2 > hy || hy >= y + j * n / 2+n / 2)
+                A[x + n / 2 - 1 + i][y + n / 2 - 1 + j] = m++ / 3;
     for(int i = 0; i < 2; i++)
         for(int j = 0; j < 2; j++)
-            if(x + i*n/2 <= hx && hx < x + i*n/2+n/2 && y + j*n/2 <= hy && hy < y + j*n/2+n/2)
-                generate_plot(n / 2, x + i * n / 2, y + j * n / 2, hx, hy); // Block contains the hole
-            else // Does not contain the hole
+            if(x + i * n / 2 <= hx && hx < x + i * n / 2 + n / 2 && y + j * n / 2 <= hy && hy < y + j * n / 2 + n / 2)
+                generate_plot(n / 2, x + i * n / 2, y + j * n / 2, hx, hy);
+            else
                 generate_plot(n / 2, x + i * n / 2, y + j * n / 2, x + n / 2 - 1 + i, y + n / 2 - 1 + j);
 }
 
-int main1()
+int main()
 {
     int n, px, py;
     std::cin >> n >> px >> py;
