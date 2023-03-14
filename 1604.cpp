@@ -41,10 +41,10 @@ int main()
     }
     while(!q.empty())
     {
-        auto p1 = q.top(); // Greedily pick the most common sign
+        auto p1 = q.top();
         q.pop();
         printf("%d ", p1.second);
-        if(!q.empty()) // Make sure we choose another sign next
+        if(!q.empty())
         {
             auto p2 = q.top();
             q.pop();

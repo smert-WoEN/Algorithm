@@ -10,7 +10,6 @@ struct point {
     int x, y;
     int i;
 } p[30000];
-point pk;
 
 int f(point& a, point& b) {
     if(a.x*b.y == a.y*b.x && a.x*b.x + a.y*b.y >= 0)
